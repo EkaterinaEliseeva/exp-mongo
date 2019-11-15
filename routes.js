@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const router = express.Router();
 const createUserController = require('./controllers/createUserController');
 const findUserController = require('./controllers/findUserController');
@@ -11,6 +12,7 @@ router.use(function timeLog(req, res, next) {
     next();
 });
 
+router.use(cors());
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 

@@ -5,8 +5,7 @@ const port = 3000;
 const router = require('./routes');
 
 
-app.use(router)
-
+app.use(router);
 app.listen(port, (err) => {
     if (err) {
         return console.log('something bad happened', err);
