@@ -12,16 +12,19 @@ router.use(function timeLog(req, res, next) {
 });
 
 router.use(express.json());
-router.use(express.urlencoded());
+router.use(express.urlencoded({ extended: true }));
 
 router
-    .route('/')
+    .route('/users')
     .post(createUserController)
     .get(findUserController)
     .put(changeUserController)
-    .delete(deleteUserController)
+    .delete(deleteUserController);
 
 router
-    .get('/list', findAllController);
+    .get('/users/list', findAllController)
+    .get('/', (req,res) => {
+        res.sendFile('views/index.html', {root: __dirname })
+    });
 
 module.exports = router;

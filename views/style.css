@@ -1,0 +1,140 @@
+h1 {
+    margin: 20px 0;
+}
+
+.wrapper {
+    display: flex;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+input[type="radio"]:checked + label {
+    background-color: bisque;
+}
+
+.users-form {
+    width: 50vw;
+}
+
+.users-form__wrapper {
+    display: flex;
+}
+
+.users-form__switches {
+    width: 20%;
+    min-width: 165px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.users-form__switches label {
+    display: block;
+    padding: 12px;
+}
+
+.users-form__switches li {
+    border: 1px solid grey;
+    border-bottom: none;
+    padding: 0;
+}
+
+.users-form__switches li:last-child {
+    border-bottom: 1px solid grey;
+}
+
+.users-form__switches input{
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding:0 !important;
+    border:0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+
+.users-form__slides {
+    width: 80%;
+    border: 1px solid gray;
+    border-left: none;
+}
+
+.users-form__slide {
+    display: none;
+}
+
+.users-form__slide.active {
+    display: block;
+}
+
+.users-form__slides li {
+    padding: 10px;
+}
+
+.users-form__slides li label {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100px;
+}
+
+.users-form__slides button {
+    width: 80px;
+    margin: 10px;
+}
+
+.users-form__update {
+    display: none;
+}
+
+.users-form__delete {
+    display: none;
+}
+
+.users-form__find {
+    display: none;
+}
+
+.users-form__console {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.users-form__console textarea {
+    width: calc(100% - 22px);
+    height: calc(100vh - 310px);
+    padding: 10px;
+    margin: 0;
+    margin-top: 10px;
+    border: 1px solid grey;
+    border-top: none;
+    background-color: black;
+    color: white;
+    resize: none;
+    outline: none;
+}
+
+.users-list {
+    width: 50vw;
+    padding: 0 20px;
+    margin-top: -29px;
+}
+
+.users-list  button {
+    width: 10%;
+    height: 24px;
+    margin-bottom: 5px;
+}
+
+.users-list  textarea {
+    width: 100%;
+    border: 1px solid grey;
+    resize: none;
+    height: calc(100vh - 112px);
+    outline: none;
+}

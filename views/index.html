@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!--    <link rel="stylesheet" href="views/style.css">-->
+    <style>
+        body {
+            min-width: 400px;
+            padding: 0 10px;
+            margin: 0;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        .wrapper {
+            display: flex;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        input[type="radio"]:checked + label {
+            background-color: bisque;
+        }
+
+        .users-form {
+            width: 50vw;
+        }
+
+        .users-form__wrapper {
+            display: flex;
+        }
+
+        .users-form__switches {
+            width: 20%;
+            min-width: 165px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .users-form__switches label {
+            display: block;
+            padding: 12px;
+        }
+
+        .users-form__switches li {
+            border: 1px solid grey;
+            border-bottom: none;
+            padding: 0;
+        }
+
+        .users-form__switches li:last-child {
+            border-bottom: 1px solid grey;
+        }
+
+        .users-form__switches input{
+            position: absolute !important;
+            clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+            clip: rect(1px, 1px, 1px, 1px);
+            padding:0 !important;
+            border:0 !important;
+            height: 1px !important;
+            width: 1px !important;
+            overflow: hidden;
+        }
+
+        .users-form__slides {
+            width: 80%;
+            border: 1px solid gray;
+            border-left: none;
+        }
+
+        .users-form__slide {
+            display: none;
+        }
+
+        .users-form__slide.active {
+            display: block;
+        }
+
+        .users-form__slides li {
+            padding: 10px;
+        }
+
+        .users-form__slides li label {
+            display: inline-block;
+            vertical-align: middle;
+            width: 100px;
+        }
+
+        .users-form__slides button {
+            width: 80px;
+            margin: 10px;
+        }
+
+        .users-form__console {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .users-form__console textarea {
+            width: calc(100% - 22px);
+            height: calc(100vh - 310px);
+            padding: 10px;
+            margin: 0;
+            margin-top: 10px;
+            border: 1px solid grey;
+            border-top: none;
+            background-color: black;
+            color: white;
+            resize: none;
+            overflow: none;
+        }
+
+        .users-list {
+            width: 50vw;
+            padding: 0 20px;
+            margin-top: -29px;
+        }
+
+        .users-list  button {
+            width: 100px;
+            height: 24px;
+            margin-bottom: 5px;
+        }
+
+        .users-list  textarea {
+            width: 100%;
+            border: 1px solid grey;
+            resize: none;
+            height: calc(100vh - 112px);
+            outline: none;
+        }
+
+        @media (max-width: 740px) {
+            .wrapper {
+                flex-wrap: wrap;
+            }
+
+            .users-form {
+                width: 100%;
+            }
+
+            .users-list {
+                width: 100%;
+                margin-top: 20px;
+                padding: 0;
+            }
+
+            .users-list textarea {
+                width: calc(100% - 6px);
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .users-form__switches label {
+                padding: 18px;
+            }
+
+            .users-form__console textarea {
+                height: calc(100vh - 358px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+<h1>Hey</h1>
+<div class="wrapper">
+    <div class="users-form">
+        <div class="users-form__wrapper">
+            <ul class="users-form__switches">
+                <li>
+                    <input type="radio" id="create" name="method" checked>
+                    <label for="create">Create user</label>
+                </li>
+                <li>
+                    <input type="radio" id="update" name="method">
+                    <label for="update">Update password</label>
+                </li>
+                <li>
+                    <input type="radio" id="find" name="method">
+                    <label for="find">Find user</label>
+                </li>
+                <li>
+                    <input type="radio" id="delete" name="method">
+                    <label for="delete">Delete user</label>
+                </li>
+            </ul>
+
+            <div class="users-form__slides">
+
+                <form class="users-form__slide users-form__slide--create active">
+                    <ul>
+                        <li>
+                            <label for="login">Username</label>
+                            <input type="text" id="login" required>
+                        </li>
+                        <li>
+                            <label for="password">Password</label>
+                            <input type="text" id="password" required>
+                        </li>
+                    </ul>
+                    <button type="submit">Push</button>
+                </form>
+
+                <form class="users-form__slide users-form__slide--update ">
+                    <ul>
+                        <li>
+                            <label for="login">Username</label>
+                            <input type="text" id="login" required>
+                        </li>
+                        <li>
+                            <label for="password">Password</label>
+                            <input type="text" id="password" required>
+                        </li>
+                        <li>
+                            <label for="newpassword">New password</label>
+                            <input type="text" id="newpassword" required>
+                        </li>
+                    </ul>
+                    <button type="submit">Push</button>
+                </form>
+                <form class="users-form__slide users-form__slide--find">
+                    <ul>
+                        <li>
+                            <label for="login">Username</label>
+                            <input type="text" id="login" required>
+                        </li>
+                    </ul>
+                    <button type="submit">Find</button>
+
+                </form>
+                <form class="users-form__slide users-form__slide--delete">
+                    <ul>
+                        <li>
+                            <label for="login">Username</label>
+                            <input type="text" id="login" required>
+                        </li>
+                        <li>
+                            <label for="password">Password</label>
+                            <input type="text" id="password" required>
+                        </li>
+                    </ul>
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    <div class="users-form__console">
+        <textarea id="console" readonly ></textarea>
+    </div>
+
+    </div>
+    <div class="users-list">
+        <form action="">
+            <button id="update-list" type="submit">
+                Update
+            </button>
+            <textarea name="" id="list" readonly>
+
+            </textarea>
+        </form>
+    </div>
+</div>
+<script>
+    const switches = document.querySelectorAll('input[type=radio]');
+
+    const forms = document.querySelectorAll('.users-form__slide');
+
+    const createForm = document.querySelector('.users-form__slide--create');
+
+    const updateButton = document.querySelector('#update-list');
+
+    const updateForm = document.querySelector('.users-form__slide--update');
+
+    const findUserForm = document.querySelector('.users-form__slide--find');
+
+    const deleteUserForm = document.querySelector('.users-form__slide--delete');
+
+    const deleteActiveClass = function () {
+        forms.forEach(item => {
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+            }
+        })
+    }
+
+    const onInputRadioClick = function (i) {
+        deleteActiveClass();
+        forms[i].classList.add('active');
+    };
+
+    switches.forEach((item, i) => {
+        item.addEventListener('input', () => onInputRadioClick(i));
+    });
+
+    function createUser(url = 'http://localhost:3000/users', data) {
+        return fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(res => res.json());;
+    }
+
+    function updatePassword(url = 'http://localhost:3000/users', data) {
+        return fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(res => res.json());
+    }
+
+    function deleteUser(url = 'http://localhost:3000/users', data) {
+        return fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(res => res.json());
+    }
+
+    createForm.addEventListener('submit', (evt) => {
+        evt.preventDefault();
+        document.querySelector('#console').value = '';
+        const login = createForm.querySelector('#login').value;
+        const password = createForm.querySelector('#password').value;
+
+        const data = {
+            login,
+            password
+        };
+
+        createUser('http://localhost:3000/users', data)
+            .then(res => {
+                document.querySelector('#console').value = JSON.stringify(res);
+            })
+            .catch(err => document.querySelector('#console').value = err);
+    });
+
+    updateForm.addEventListener('submit', (evt) => {
+        evt.preventDefault();
+        document.querySelector('#console').value = '';
+        const login = updateForm.querySelector('#login').value;
+        const password = updateForm.querySelector('#password').value;
+        const newpassword = updateForm.querySelector('#newpassword').value;
+
+        const data = {
+            login,
+            password,
+            newpassword
+        };
+
+        updatePassword('http://localhost:3000/users', data)
+            .then(res => {
+                console.log(res);
+                document.querySelector('#console').value = JSON.stringify(res);
+            })
+            .catch(err => document.querySelector('#console').value = err);
+    });
+
+    findUserForm.addEventListener('submit', (evt) => {
+        evt.preventDefault();
+        const login = findUserForm.querySelector('#login').value;
+        const url = 'http://localhost:3000/users/?login=' + login;
+        fetch(url)
+            .then(response => response.json())
+            .then(res => {
+                const {login, password} = res;
+                const user = {login, password};
+                document.querySelector('#console').value = JSON.stringify(user);
+            });
+    });
+
+    deleteUserForm.addEventListener('submit', (evt) => {
+        evt.preventDefault();
+
+        const login = deleteUserForm.querySelector('#login').value;
+        const password = deleteUserForm.querySelector('#password').value;
+
+        const data = {
+            login,
+            password
+        };
+
+        deleteUser('http://localhost:3000/users', data)
+            .then(res => document.querySelector('#console').value = JSON.stringify(res))
+            .catch(err => document.querySelector('#console').value = err);
+
+
+
+    });
+
+    updateButton.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        document.querySelector('#list').value = '';
+        fetch('http://localhost:3000/users/list')
+            .then(response => response.json())
+            .then(res => {
+                res
+                    .map(it => {
+                        const {login, password} = it;
+                        return {login, password};
+                    })
+                    .forEach(it => {
+                    document.querySelector('#list').value += JSON.stringify(it) + '\n';
+                })
+            });
+    });
+
+</script>
+</body>
+</html>
