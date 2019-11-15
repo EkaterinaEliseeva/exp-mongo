@@ -1,9 +1,19 @@
+body {
+    min-width: 400px;
+    margin: 0;
+    overflow-y: hidden;
+}
+
 h1 {
     margin: 20px 0;
+    padding: 0 10px;
+    font-size: 26px;
 }
 
 .wrapper {
+    padding: 0 10px;
     display: flex;
+    height: calc(100vh - 66px);
 }
 
 ul {
@@ -16,25 +26,49 @@ input[type="radio"]:checked + label {
     background-color: bisque;
 }
 
+button {
+    margin: 0;
+    width: auto;
+    min-width: 100px;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 3px 10px;
+    text-align: center;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+}
+
+button:hover {
+    opacity: 0.5;
+}
+
 .users-form {
     width: 50vw;
+    height: calc(100vh - 72px);
 }
 
 .users-form__wrapper {
     display: flex;
+    height: 217px;
 }
 
 .users-form__switches {
     width: 20%;
-    min-width: 165px;
+    min-width: 180px;
+    height: 217px;
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .users-form__switches label {
+    width: calc(100% - 34px);
     display: block;
-    padding: 12px;
+    padding: 17px;
+    line-height: 19px;
 }
 
 .users-form__switches li {
@@ -48,14 +82,7 @@ input[type="radio"]:checked + label {
 }
 
 .users-form__switches input{
-    position: absolute !important;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    padding:0 !important;
-    border:0 !important;
-    height: 1px !important;
-    width: 1px !important;
-    overflow: hidden;
+    display: none;
 }
 
 .users-form__slides {
@@ -79,24 +106,12 @@ input[type="radio"]:checked + label {
 .users-form__slides li label {
     display: inline-block;
     vertical-align: middle;
-    width: 100px;
+    width: 120px;
 }
 
 .users-form__slides button {
     width: 80px;
     margin: 10px;
-}
-
-.users-form__update {
-    display: none;
-}
-
-.users-form__delete {
-    display: none;
-}
-
-.users-form__find {
-    display: none;
 }
 
 .users-form__console {
@@ -107,27 +122,25 @@ input[type="radio"]:checked + label {
 
 .users-form__console textarea {
     width: calc(100% - 22px);
-    height: calc(100vh - 310px);
+    height: calc(100vh - 339px);
     padding: 10px;
-    margin: 0;
-    margin-top: 10px;
+    margin: 10px 0 10px 0;
     border: 1px solid grey;
     border-top: none;
     background-color: black;
     color: white;
     resize: none;
-    outline: none;
+    overflow: none;
 }
 
 .users-list {
     width: 50vw;
     padding: 0 20px;
-    margin-top: -29px;
+    margin-top: -28px;
 }
 
 .users-list  button {
-    width: 10%;
-    height: 24px;
+    width: 100px;
     margin-bottom: 5px;
 }
 
@@ -135,6 +148,40 @@ input[type="radio"]:checked + label {
     width: 100%;
     border: 1px solid grey;
     resize: none;
-    height: calc(100vh - 112px);
+    height: calc(100vh - 94px);
     outline: none;
+}
+
+@media (max-width: 900px) {
+    .users-form {
+        width: 60vw;
+    }
+
+    .users-list {
+        width: 40vw;
+    }
+}
+
+@media (max-width: 770px) {
+    body {
+        overflow-y: visible;
+    }
+
+    .wrapper {
+        flex-wrap: wrap;
+    }
+
+    .users-form {
+        width: 100%;
+    }
+
+    .users-list {
+        width: 100%;
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    .users-list textarea {
+        width: calc(100% - 6px);
+    }
 }
